@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>🔥 ورشة الإسقاط — المسقط الثالث والإيزومتريك</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--z:1;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f4ece0;--bg2:#ead9bf;--ink:#2a1608;--mut:#7d5d41;--panel:rgba(255,251,244,.9);--line:rgba(125,75,25,.24);--acc:#d9480f;--acc2:#f08c00;--shadow:rgba(120,60,10,.35);
+--ln-edge:#24160a;--ln-hl:#d9480f;--ln-proj:#0b7bb5;--ln-mit:#c2255c;--ln-con:#0f9d6b;--ln-con2:#a86a10;--ln-hid:#c2255c;--ln-ax:#d9480f;
+--f-ft:#ffdba5;--f-fa:#f5a45d;--f-fl:#c9783a;--s1:#ffc27a;--s2:#f2994a;--s3:#d29868;--ss1:#24160a;--ss2:#24160a;--ss3:#24160a;--dot:#d9480f;--txt:#5a3412;--stageBg:#fffaf1;--grid:rgba(125,75,25,.09);--track:rgba(125,75,25,.2)}
+:root[data-theme="dark"]{--bg:#0b0503;--bg2:#1d0b05;--ink:#ffeccb;--mut:#c9a27c;--panel:rgba(28,12,6,.82);--line:rgba(255,140,50,.3);--acc:#ff7a1a;--acc2:#ffb347;--shadow:rgba(255,80,0,.4);--ln-edge:#fff3d9;--ln-hl:#ffa51a;--ln-proj:#4fd8ff;--ln-mit:#ff4d6d;--ln-con:#4de1a8;--ln-con2:#ffd34d;--ln-hid:#ff9ec4;--ln-ax:#ffa51a;--f-ft:#ffb347;--f-fa:#ff6a1a;--f-fl:#a82c0c;--s1:#ff8a2a;--s2:#c4441a;--s3:#6e1f0d;--ss1:#fff3b0;--ss2:#ffe08a;--ss3:#ffd23f;--dot:#ffd34d;--txt:#ffd9a0;--stageBg:#120804;--grid:rgba(255,140,50,.07);--track:rgba(255,160,70,.2)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0503;--bg2:#1d0b05;--ink:#ffeccb;--mut:#c9a27c;--panel:rgba(28,12,6,.82);--line:rgba(255,140,50,.3);--acc:#ff7a1a;--acc2:#ffb347;--shadow:rgba(255,80,0,.4);--ln-edge:#fff3d9;--ln-hl:#ffa51a;--ln-proj:#4fd8ff;--ln-mit:#ff4d6d;--ln-con:#4de1a8;--ln-con2:#ffd34d;--ln-hid:#ff9ec4;--ln-ax:#ffa51a;--f-ft:#ffb347;--f-fa:#ff6a1a;--f-fl:#a82c0c;--s1:#ff8a2a;--s2:#c4441a;--s3:#6e1f0d;--ss1:#fff3b0;--ss2:#ffe08a;--ss3:#ffd23f;--dot:#ffd34d;--txt:#ffd9a0;--stageBg:#120804;--grid:rgba(255,140,50,.07);--track:rgba(255,160,70,.2)}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Cairo','Segoe UI',Tahoma,sans-serif;min-height:100vh;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(120% 60% at 50% 115%,rgba(255,90,0,.38),transparent 62%),radial-gradient(70% 40% at 90% -10%,rgba(255,170,60,.12),transparent 60%)}
+:root[data-theme="light"] .bg{background:radial-gradient(90% 40% at 50% 120%,rgba(240,140,0,.22),transparent 65%)}
+.embers{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.embers i{position:absolute;bottom:-12px;width:4px;height:4px;border-radius:50%;background:#ffa733;box-shadow:0 0 8px #ff7a00;opacity:0;animation:up linear infinite}
+:root[data-theme="light"] .embers{display:none}
+@keyframes up{0%{transform:translateY(0);opacity:0}10%{opacity:.9}100%{transform:translateY(-100vh) translateX(40px);opacity:0}}
+.app{position:relative;z-index:1;max-width:960px;margin:auto;padding:10px 12px 210px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:2px 0 10px}
+.brand{display:flex;align-items:center;gap:10px}
+.mark{width:40px;height:40px;filter:drop-shadow(0 0 8px rgba(255,100,0,.55))}
+h1{margin:0;font-size:19px;font-weight:800;letter-spacing:.2px;background:linear-gradient(90deg,var(--acc2),var(--acc));-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand p{margin:0;font-size:11.5px;color:var(--mut);font-weight:600}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+.ico{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:var(--panel);border:1px solid var(--line);color:var(--ink);backdrop-filter:blur(10px);transition:transform .12s,background .15s}
+.ico:active{transform:scale(.92);background:var(--acc);color:#190a02}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px 2px 10px;margin:0 -2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;min-width:62px;padding:7px 10px 6px;border-radius:16px;border:1px solid var(--line);background:var(--panel);text-align:center;line-height:1.1;backdrop-filter:blur(10px)}
+.chip b{display:block;font-size:20px;font-weight:800}
+.chip span{font-size:10.5px;color:var(--mut);font-weight:600}
+.chip.on{background:linear-gradient(135deg,var(--acc2),var(--acc));border-color:transparent;color:#1d0c03;box-shadow:0 10px 24px -10px var(--acc)}
+.chip.on span{color:#3b1a06}
+.stage{position:relative;border-radius:24px;border:1px solid var(--line);background-color:var(--stageBg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px;box-shadow:0 24px 60px -28px var(--shadow);overflow:hidden}
+.sbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px 0}
+.seg{display:flex;background:var(--track);border-radius:14px;padding:3px;gap:2px}
+.seg button{padding:6px 12px;border-radius:11px;font-size:12.5px;font-weight:700;color:var(--mut);white-space:nowrap}
+.seg button.on{background:var(--panel);color:var(--ink);box-shadow:0 2px 10px -2px var(--shadow)}
+.pill{padding:7px 12px;border-radius:12px;font-size:12.5px;font-weight:700;border:1px solid var(--line);background:var(--panel);white-space:nowrap}
+.pill.on{background:linear-gradient(135deg,var(--acc2),var(--acc));color:#1d0c03;border-color:transparent}
+.canvas{overflow:auto;padding:6px 8px 10px;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+.canvas svg{display:block;width:calc(100% * var(--z));height:auto;direction:ltr}
+.stage.full{position:fixed;inset:0;z-index:60;border-radius:0;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
+.stage.full .canvas{flex:1}
+.card{margin:12px 0 0;padding:14px 16px 14px;border-radius:22px;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(14px);box-shadow:0 18px 44px -26px var(--shadow);position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--acc2),var(--acc))}
+.card-h{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.badge{font-size:11.5px;font-weight:800;padding:3px 10px;border-radius:99px;background:var(--track)}
+.phase{font-size:11.5px;font-weight:800;padding:3px 10px;border-radius:99px}
+.phase.pA{background:rgba(79,216,255,.18);color:var(--ln-proj)}
+.phase.pB{background:rgba(255,140,40,.2);color:var(--acc)}
+.card h2{margin:2px 0 4px;font-size:18px;font-weight:800}
+.card p{margin:0;font-size:14.5px;line-height:1.85;color:var(--ink)}
+.card p b,.sub b{color:var(--acc)}
+.sub{margin-top:8px;padding:9px 12px;border-radius:14px;background:var(--track);font-size:13.5px;line-height:1.8}
+.sub span,.ctx span{display:block;font-size:11px;font-weight:800;color:var(--mut);margin-bottom:2px;letter-spacing:.3px}
+.ctx{margin-top:8px;font-size:12.5px;line-height:1.7;color:var(--mut)}
+.card-h{gap:8px 10px;margin-bottom:10px}
+.card-h .badge{background:linear-gradient(135deg,rgba(255,179,71,.2),rgba(255,122,26,.12));color:var(--acc)}
+.card-h .pill{min-height:34px}
+.card-h #presentBtn{margin-inline-start:auto;width:38px;height:38px;border-radius:13px;color:var(--acc);background:linear-gradient(145deg,var(--panel),var(--track));box-shadow:0 5px 16px -10px var(--shadow)}
+.card h2{line-height:1.5}
+.card p{max-width:78ch}
+.presentation{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:clamp(12px,3vw,36px);background:radial-gradient(100% 80% at 50% 0%,rgba(255,122,26,.13),transparent 58%),rgba(5,3,2,.94);backdrop-filter:blur(16px)}
+.presentation.open{display:flex}
+body.presentation-active{overflow:hidden;touch-action:none}
+.pres-frame{animation:pres-enter .32s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pres-enter{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:none}}
+.pres-drawing{position:relative;flex:1;min-height:260px;overflow:hidden;margin:10px 16px 0;border:1px solid var(--line);border-radius:22px;background-color:var(--stageBg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px;box-shadow:inset 0 0 38px rgba(0,0,0,.12)}
+.pres-drawing svg{display:block!important;width:100%!important;height:100%!important;max-width:100%;direction:ltr;transition:opacity .25s ease;}
+.pres-drawing svg[style*="display: none"]{display:none!important}
+.pres-drawing.step-change svg:not([style*="display: none"]){animation:sketch-step .38s ease both}
+@keyframes sketch-step{from{opacity:.58;transform:scale(.99)}to{opacity:1;transform:scale(1)}}
+.pres-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px clamp(16px,3vw,30px) 8px}
+.pres-caption strong{font-size:clamp(15px,2.3vw,22px);font-weight:800;line-height:1.45}
+.pres-caption span{flex:0 0 auto;color:var(--mut);font-size:12px;font-weight:700}
+.pres-bottom{display:flex;flex-direction:column;gap:8px;padding:8px clamp(14px,3vw,26px) calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);background:var(--panel)}
+.pres-controls{display:flex;align-items:center;gap:8px;min-height:46px}
+.pres-controls .ico{flex:0 0 42px}
+.pres-controls .big{flex:0 0 118px;height:44px;max-width:none;font-size:13px}
+.pres-controls .pill{min-width:72px;padding:7px 10px;text-align:center}
+.pres-count{margin-inline-start:auto;white-space:nowrap;direction:ltr;unicode-bidi:isolate}
+.pres-scrub[type="range"]{width:100%;height:16px;margin:0;accent-color:var(--acc);cursor:pointer;touch-action:pan-y;direction:ltr;background:linear-gradient(to right,var(--acc) var(--pr,0%),var(--track) var(--pr,0%))}
+.pres-scrub::-webkit-slider-thumb{width:19px;height:19px}
+#soundBtn[aria-pressed="false"],#presSound[aria-pressed="false"]{opacity:.56}
+@media(max-width:560px){
+ .app{padding:8px 9px calc(178px + env(safe-area-inset-bottom,0px))}
+ .top{gap:7px;margin:1px 0 8px}.mark{width:35px;height:35px}.brand{gap:7px}h1{font-size:17px}.brand p{font-size:10px}
+ .chips{gap:6px;padding-bottom:8px}.chip{min-width:55px;padding:6px 8px;border-radius:14px}.chip b{font-size:18px}.chip span{font-size:9px}
+ .stage{border-radius:18px}.sbar{flex-wrap:wrap;padding:7px 8px 0}.seg{flex:1;min-width:0}.seg button{flex:1;padding:7px 6px;font-size:11px}.sbar>div:last-child{gap:5px!important}.sbar .pill{padding:6px 8px;font-size:11px}.canvas{padding:4px 5px 8px}
+ .card{margin-top:9px;padding:12px 12px;border-radius:18px}.card-h{gap:6px;margin-bottom:8px}.card-h .badge,.card-h .phase{font-size:10px;padding:4px 8px}.card-h #presentBtn{margin-inline-start:0;width:36px;height:36px}.card-h #pauseEach{margin-inline-start:auto}.card-h .pill{min-height:32px;padding:5px 7px;font-size:10px}
+ .card h2{font-size:17px}.card p{font-size:13px;line-height:1.8}.sub{font-size:12px}.ctx{font-size:11px}.legend{gap:6px 10px;font-size:10px;margin-top:9px}.legend svg{width:28px}
+ .dock{padding:5px 7px calc(6px + env(safe-area-inset-bottom,0px))}.dock-in{padding:7px 8px 8px;border-radius:20px}.scrub{height:24px}.ctrl{display:grid;grid-template-columns:36px minmax(84px,1fr) 36px 36px auto;gap:4px;margin-top:5px}.ctrl>.ico{width:36px;height:38px;border-radius:11px}.big{height:40px;font-size:12px;border-radius:13px}.big svg{width:18px;height:18px}.spd{padding:2px}.spd button{padding:5px 5px;font-size:9px;border-radius:8px}
+ .presentation{padding:0}.pres-frame{width:100%;height:100%;max-height:100%;border-radius:0;border:0}.pres-top{padding:calc(9px + env(safe-area-inset-top,0px)) 10px 9px;gap:6px}.pres-mark{width:30px;height:30px;border-radius:10px}.pres-brand{gap:7px}.pres-brand strong{font-size:12px}.pres-brand small{font-size:9px}.pres-meta{gap:4px;flex-wrap:nowrap}.pres-meta .badge,.pres-meta .phase{font-size:9px;padding:3px 6px}.pres-meta #presClose{width:34px!important;height:34px!important;flex:0 0 34px}.pres-progress{height:3px}.pres-drawing{min-height:0;margin:7px 7px 0;border-radius:15px;background-size:18px 18px}.pres-caption{padding:8px 12px 5px;gap:6px}.pres-caption strong{font-size:14px}.pres-caption span{font-size:10px}.pres-bottom{gap:4px;padding:6px 10px calc(8px + env(safe-area-inset-bottom,0px))}.pres-controls{gap:5px;min-height:40px}.pres-controls .ico{flex-basis:36px;width:36px;height:36px;border-radius:11px}.pres-controls .big{flex-basis:94px;height:38px;font-size:11px;border-radius:12px}.pres-controls .pill{min-width:51px;padding:6px 6px;font-size:10px}.pres-count{font-size:10px}.pres-scrub{height:13px}.pres-scrub::-webkit-slider-thumb{width:18px;height:18px}
+}
+@media(max-width:360px){.card-h{gap:4px}.card-h #pauseEach{margin-inline-start:auto}.card-h .pill{font-size:9px;padding-inline:5px}.pres-brand small{display:none}.pres-meta .badge{display:none}.ctrl{grid-template-columns:34px minmax(68px,1fr) 34px 34px auto;gap:3px}.ctrl>.ico{width:34px;height:36px}.spd button{padding-inline:4px}}
+@media(prefers-reduced-motion:reduce){.pres-frame,.pres-drawing.step-change svg:not([style*="display: none"]){animation:none}.pres-drawing svg{transition:none}}
+.pres-frame{width:min(1100px,100%);height:min(820px,100%);display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,var(--bg2),var(--bg));box-shadow:0 30px 100px rgba(0,0,0,.55),0 0 55px -25px var(--acc)}
+.pres-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px clamp(16px,3vw,30px);border-bottom:1px solid var(--line);background:var(--panel)}
+.pres-brand{display:flex;align-items:center;gap:10px;min-width:0}
+.pres-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,var(--acc2),var(--acc));color:#1d0c03}
+.pres-brand strong{display:block;font-size:15px;font-weight:800}
+.pres-brand small{display:block;color:var(--mut);font-size:11px}
+.pres-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.pres-meta .badge,.pres-meta .phase{white-space:nowrap}
+.pres-content{flex:1;overflow:auto;display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,7vw,88px);scrollbar-width:thin}
+.pres-kicker{color:var(--acc);font-size:clamp(13px,2vw,17px);font-weight:800;margin-bottom:14px}
+.pres-content h2{font-size:clamp(28px,5vw,52px);line-height:1.35;margin:0 0 24px;font-weight:800;max-width:22ch}
+.pres-body{font-size:clamp(19px,2.8vw,29px);line-height:2;color:var(--ink);max-width:75ch}
+.pres-body b,.pres-detail b{color:var(--acc)}
+.pres-detail,.pres-context{margin-top:22px;padding:17px 20px;border:1px solid var(--line);border-radius:18px;background:var(--panel);font-size:clamp(15px,2vw,19px);line-height:1.9}
+.pres-context{font-size:clamp(13px,1.6vw,16px);color:var(--mut);background:transparent}
+.pres-detail[hidden],.pres-context[hidden]{display:none}
+.pres-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px clamp(16px,3vw,30px);border-top:1px solid var(--line);background:var(--panel)}
+.pres-nav{display:flex;align-items:center;gap:8px}
+.pres-nav .pill{min-width:112px;text-align:center}
+.pres-count{font-size:13px;font-weight:800;color:var(--mut);text-align:center}
+.pres-progress{height:4px;background:var(--track)}
+.pres-progress i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--acc2),var(--acc));transition:width .2s}
+@media(max-width:560px){.card-h{gap:6px}.card-h #presentBtn{margin-inline-start:0}.card-h #pauseEach{margin-inline-start:auto}.card-h .pill{padding:6px 8px;font-size:11px}.pres-frame{border-radius:20px}.pres-top{align-items:flex-start}.pres-meta{gap:5px}.pres-meta .badge,.pres-meta .phase{font-size:10px;padding:3px 7px}.pres-content{justify-content:flex-start;padding:32px 22px}.pres-bottom{flex-wrap:wrap}.pres-nav{width:100%;justify-content:space-between}.pres-count{width:100%;order:-1}}
+@media(prefers-reduced-motion:reduce){.pres-progress i{transition:none}}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:12px 2px 0;font-size:12px;color:var(--mut);font-weight:600}
+.legend div{display:flex;align-items:center;gap:6px}
+.legend svg{width:34px;height:10px;overflow:visible}
+.lg-edge{stroke:var(--ln-edge);stroke-width:3.2}
+.lg-proj,.lg-mit,.lg-con,.lg-hid{stroke-dasharray:.1 6;stroke-linecap:round}
+.lg-proj{stroke:var(--ln-proj);stroke-width:2.6}.lg-mit{stroke:var(--ln-mit);stroke-width:3.4}.lg-con{stroke:var(--ln-con);stroke-width:2.6}.lg-hid{stroke:var(--ln-hid);stroke-width:2.6}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:linear-gradient(transparent,var(--bg) 38%);}
+.dock-in{max-width:960px;margin:auto;border-radius:26px;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(18px);box-shadow:0 -10px 40px -18px var(--shadow);padding:10px 12px 12px}
+.scrub{position:relative;height:26px;display:flex;align-items:center}
+.marks{position:absolute;inset-inline:0;top:50%;height:0;pointer-events:none}
+.marks i{position:absolute;top:-9px;width:2px;height:6px;border-radius:2px;opacity:.9}
+.marks i.mA{background:var(--ln-proj)}.marks i.mB{background:var(--acc)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:6px;outline:none;direction:rtl;background:linear-gradient(to left,var(--acc) var(--pr,0%),var(--track) var(--pr,0%))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--acc);box-shadow:0 0 14px var(--acc)}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--acc)}
+.ctrl{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}
+.big{flex:1;max-width:210px;height:50px;border-radius:18px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:800;font-size:15px;color:#1d0c03;background:linear-gradient(135deg,var(--acc2),var(--acc));box-shadow:0 12px 28px -10px var(--acc);transition:transform .12s}
+.big:active{transform:scale(.96)}
+.big.on{background:linear-gradient(135deg,#ff9d4a,#ff4d1a)}
+.spd{display:flex;background:var(--track);border-radius:13px;padding:3px}
+.spd button{padding:6px 9px;font-size:11.5px;font-weight:700;border-radius:10px;color:var(--mut)}
+.spd button.on{background:var(--panel);color:var(--ink);box-shadow:0 2px 8px -2px var(--shadow)}
+.sheet{position:fixed;inset:0;z-index:80;display:none;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
+.sheet.open{display:block}
+.sh-box{position:absolute;left:0;right:0;bottom:0;max-height:78vh;overflow:auto;background:var(--bg);border-radius:26px 26px 0 0;border:1px solid var(--line);padding:14px 14px calc(18px + env(safe-area-inset-bottom,0px))}
+.sh-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;font-weight:800;font-size:16px}
+.sh-h{margin:12px 2px 6px;font-size:12px;font-weight:800;color:var(--acc);letter-spacing:.3px}
+.sh-i{display:flex;align-items:center;gap:10px;width:100%;text-align:start;padding:9px 10px;border-radius:14px;font-size:14px;font-weight:600}
+.sh-i i{font-style:normal;min-width:28px;height:28px;border-radius:10px;display:grid;place-items:center;background:var(--track);font-size:12px;font-weight:800}
+.sh-i.on{background:var(--panel);border:1px solid var(--acc)}
+.sh-i.on i{background:var(--acc);color:#1d0c03}
+.edge,.given{stroke:var(--ln-edge);stroke-width:2.4;fill:none;stroke-linejoin:round}
+.hl{stroke:var(--ln-hl);stroke-width:3.6;fill:none}
+.tick{stroke:var(--ln-hl);stroke-width:2;fill:none}
+.proj{stroke:var(--ln-proj);stroke-width:1.1;fill:none}
+.mit{stroke:var(--ln-mit);stroke-width:2.2;fill:none}
+.con{stroke:var(--ln-con);stroke-width:1.2;fill:none}
+.con2{stroke:var(--ln-con2);stroke-width:1.4;fill:none}
+.hid{stroke:var(--ln-hid);stroke-width:2.6;fill:none}
+.ax{stroke:var(--ln-ax);stroke-width:2;fill:none}
+.dot{fill:var(--dot);stroke:var(--stageBg);stroke-width:1.5}
+.s1{fill:var(--s1);stroke:var(--ss1);stroke-width:3.2;stroke-linejoin:round}
+.s2{fill:var(--s2);stroke:var(--ss2);stroke-width:3.2;stroke-linejoin:round}
+.s3{fill:var(--s3);stroke:var(--ss3);stroke-width:3.6;stroke-linejoin:round}
+.ft{fill:var(--f-ft);stroke:var(--ln-edge);stroke-width:2;stroke-linejoin:round}
+.fa{fill:var(--f-fa);stroke:var(--ln-edge);stroke-width:2;stroke-linejoin:round}
+.fl{fill:var(--f-fl);stroke:var(--ln-edge);stroke-width:2;stroke-linejoin:round}
+text{fill:var(--txt);font:700 13px 'Cairo',Tahoma,sans-serif}
+.dimlbl{fill:var(--ink);font-size:12.5px;paint-order:stroke;stroke:var(--stageBg);stroke-width:4px;stroke-linejoin:round}
+.drawing{filter:drop-shadow(0 0 5px var(--acc))}
+.pen{fill:var(--acc2);stroke:#fff;stroke-width:1.6;filter:drop-shadow(0 0 7px var(--acc))}
+@media (min-width:760px){.app{padding-bottom:230px}.card p{font-size:15.5px}}
+@media (prefers-reduced-motion:reduce){.embers i{animation:none}}
+
+
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="embers" id="em"></div>
+<main class="app">
+  <header class="top">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb347"/><stop offset="1" stop-color="#ff3d00"/></linearGradient></defs><path d="M20 3 36 12v16L20 37 4 28V12z" fill="none" stroke="url(#lg)" stroke-width="2.4" stroke-linejoin="round"/><path d="M20 20v17M20 20 4 12M20 20l16-8" fill="none" stroke="url(#lg)" stroke-width="2" stroke-linecap="round"/></svg>
+      <div><h1>ورشة الإسقاط</h1><p>مسقط ثالث · إيزومتريك · خطوة بخطوة</p></div>
+    </div>
+    <button class="ico" id="themeBtn" aria-label="تبديل الوضع"></button>
+  </header>
+
+  <nav class="chips" id="chips" aria-label="اختيار المسألة"></nav>
+
+  <section class="stage" id="stage">
+    <div class="sbar">
+      <div class="seg" id="seg"><button data-p="A">المسقط الثالث</button><button data-p="B">الإيزومتريك</button></div>
+      <div style="display:flex;gap:6px">
+        <button class="pill" id="solBtn">الحل النهائي</button>
+        <button class="ico" id="zoomBtn" aria-label="تكبير" style="width:36px;height:36px;border-radius:12px"></button>
+      </div>
+    </div>
+    <div class="canvas" id="canvas">
+      <svg id="A" viewBox="0 0 700 430" role="img" aria-label="المساقط"></svg>
+      <svg id="B" viewBox="0 0 640 500" role="img" aria-label="الإيزومتريك" style="display:none"></svg>
+    </div>
+  </section>
+
+  <section class="card" id="card" aria-live="polite">
+    <div class="card-h"><span class="badge" id="stepNo"></span><span class="phase" id="phaseTag"></span>
+      <button class="ico" id="presentBtn" aria-label="عرض الرسم المتحرك بملء الشاشة" title="عرض الرسم المتحرك"></button>
+      <button class="ico" id="soundBtn" aria-label="إيقاف المؤثرات الصوتية" aria-pressed="true" title="تشغيل أو كتم صوت الخطوات"></button>
+      <button class="pill" id="pauseEach">وقف بعد كل خطوة</button>
+      <button class="pill" id="stepsBtn">كل الخطوات</button>
+    </div>
+    <h2 id="ttl"></h2>
+    <p id="body"></p>
+    <div class="sub" id="sub"></div>
+    <div class="ctx" id="ctx"></div>
+  </section>
+
+  <div class="legend" aria-label="مفتاح الخطوط">
+    <div><svg><line x1="1" y1="5" x2="33" y2="5" class="lg-edge"/></svg>الحواف النهائية</div>
+    <div><svg><line x1="1" y1="5" x2="33" y2="5" class="lg-proj"/></svg>خطوط الإسقاط</div>
+    <div><svg><line x1="1" y1="5" x2="33" y2="5" class="lg-mit"/></svg>خط 45°</div>
+    <div><svg><line x1="1" y1="5" x2="33" y2="5" class="lg-con"/></svg>خطوط الإنشاء</div>
+    <div><svg><line x1="1" y1="5" x2="33" y2="5" class="lg-hid"/></svg>خطوط مخفية</div>
+  </div>
+</main>
+
+<div class="dock"><div class="dock-in">
+  <div class="scrub"><div class="marks" id="marks"></div><input type="range" id="sl" min="0" max="1000" value="0" aria-label="الشريط الزمني"></div>
+  <div class="ctrl">
+    <button class="ico" id="bp" aria-label="الخطوة السابقة"></button>
+    <button class="big" id="play"></button>
+    <button class="ico" id="bn" aria-label="الخطوة التالية"></button>
+    <button class="ico" id="rs" aria-label="من البداية"></button>
+    <div class="spd" id="spd"></div>
+  </div>
+</div></div>
+
+<div class="sheet" id="sheet"><div class="sh-box"><div class="sh-top"><span>كل الخطوات</span><button class="ico" id="shClose" aria-label="إغلاق" style="width:36px;height:36px">✕</button></div><div id="sheetList"></div></div></div>
+
+<div class="presentation" id="presentation" aria-hidden="true">
+  <section class="pres-frame" role="dialog" aria-modal="true" aria-label="عرض الرسم المتحرك">
+    <div class="pres-top">
+      <div class="pres-brand"><span class="pres-mark" aria-hidden="true">▶</span><div><strong>عرض الرسم خطوة بخطوة</strong><small>المسقط الثالث · الإيزومتريك</small></div></div>
+      <div class="pres-meta"><span class="badge" id="presStep"></span><span class="phase" id="presPhase"></span><button class="ico" id="presClose" aria-label="إغلاق شاشة العرض" title="إغلاق" style="width:40px;height:40px">×</button></div>
+    </div>
+    <div class="pres-progress" aria-hidden="true"><i id="presProgress"></i></div>
+    <div class="pres-drawing" id="presDrawing" aria-label="الرسم المتحرك للخطوة"></div>
+    <div class="pres-caption"><strong id="presTitle"></strong><span id="presCount"></span></div>
+    <div class="pres-bottom">
+      <div class="pres-controls"><button class="ico" id="presPrev" aria-label="الخطوة السابقة" title="السابق"></button><button class="big" id="presPlay" aria-label="تشغيل أو إيقاف الرسم"></button><button class="ico" id="presNext" aria-label="الخطوة التالية" title="التالي"></button><button class="ico" id="presSound" aria-label="كتم المؤثرات الصوتية" aria-pressed="true" title="الصوت"></button><span class="pres-count" id="presCounter"></span></div>
+      <input class="pres-scrub" type="range" id="presScrub" min="0" max="1000" value="0" aria-label="تقدم الرسم المتحرك">
+    </div>
+  </section>
+</div>
+
+<script>
+/* ===== دوال الإسقاط (الخانات اللي ممكن تتعدل) ===== */
+const S=4;let K=4.5;
+const F=(x,z)=>[40+S*x,200-S*z];            // المسقط الأمامي
+const T=(x,y)=>[40+S*x,250+S*(36-y)];       // المسقط الأفقي (تحت الأمامي)
+const D=(y,z)=>[520+S*(36-y),200-S*z];      // المسقط الجانبي (يمين الأمامي)
+const I=(x,y,z)=>{const r=[230+(x-y)*.866*K,480-(x+y)*.5*K-z*K];r.w=[x,y,z];return r}; // إيزومتريك
+
+/* ===== مخزن العناصر والخطوات ===== */
+let E=[],ST=[];
+function step(v,txt,d){ST.push({v,txt,d,start:0});return ST.length-1}
+function add(st,type,pts,cls,txt,dim){E.push({st,type,pts,cls,txt,dim:dim==null?99:dim})}
+function box(st,x0,x1,y0,y1,z0,z1,cls,dim){
+  const P=(x,y,z)=>I(x,y,z);
+  [[[x0,y0,z0],[x1,y0,z0]],[[x0,y1,z0],[x1,y1,z0]],[[x0,y0,z1],[x1,y0,z1]],[[x0,y1,z1],[x1,y1,z1]],
+   [[x0,y0,z0],[x0,y1,z0]],[[x1,y0,z0],[x1,y1,z0]],[[x0,y0,z1],[x0,y1,z1]],[[x1,y0,z1],[x1,y1,z1]],
+   [[x0,y0,z0],[x0,y0,z1]],[[x1,y0,z0],[x1,y0,z1]],[[x0,y1,z0],[x0,y1,z1]],[[x1,y1,z0],[x1,y1,z1]]]
+  .forEach(e=>add(st,'l',[P(...e[0]),P(...e[1])],cls,null,dim));
+}
+
+/* ===== المسائل الجديدة (الدفعة 1: مسألة 1 و 2) ===== */
+const NP=6;
+/* خطوات المسقط الثالث المشتركة: الأبعاد - خطوط الارتفاع - خط 45° */
+function common(c){
+  const {F,T,W,YD,H,zs,ys,xs}=c,r=40+S*W;let s;
+  s=step('A','<b>الأبعاد المشتركة:</b> الارتفاع <b>'+H+'</b> موجود في الأمامي وهو نفسه ارتفاع الجانبي. والعمق <b>'+YD+'</b> موجود في الأفقي وهو نفسه عرض الجانبي.',3000);
+  add(s,'l',[F(W,0),F(W,H)],'hl',null,8);add(s,'t',[[r+8,200-S*H/2]],'','الارتفاع '+H,8);
+  add(s,'l',[T(W,0),T(W,YD)],'hl',null,8);add(s,'t',[[r+8,250+S*YD/2]],'','العمق '+YD,8);
+  s=step('A','<b>خطوط الارتفاع:</b> نمد خطوط أفقية من مستويات الأمامي ('+zs.map(z=>+z.toFixed(1)).join(' و')+') ناحية اليمين، لأن الارتفاع ثابت في كل المساقط.',3200);
+  zs.forEach(z=>add(s,'l',[F(W,z),[xs+S*YD+12,200-S*z]],'proj',null,8));
+  s=step('A','<b>خط 45°:</b> العمق بييجي من الأفقي. نرسم خط 45° (الأحمر) وننقل عليه الأعماق ('+ys.join(' و')+') لفوق، فالعمق في الأفقي بيتحول لعرض في الجانبي.',4200);
+  add(s,'l',[[xs,250],[xs+S*YD,250+S*YD]],'mit',null,8);
+  ys.forEach(y=>{const p=250+S*(YD-y);add(s,'l',[[r,p],[xs+p-250,p],[xs+p-250,200-S*H-6]],'proj',null,8)});
+}
+/* رسم الأسطح الإيزومترية بترتيب (الأبعد الأول) */
+function faces(s,fc){const k=a=>a.reduce((m,p)=>m+p[0]+p[1]-p[2],0)/a.length;
+  fc.map(f=>[f[0].map(p=>I(...p)),f[1],f[2]!==undefined?f[2]:k(f[0])]).sort((a,b)=>b[2]-a[2]).forEach(f=>add(s,'p',f[0],f[1]))}
+function axes(L){let s=step('B','<b>المحاور الإيزومترية:</b> Z رأسي، و X وY بزاوية 30° عن الأفقي. كل الأطوال على المحاور بتتقاس بمقياس حقيقي.',3000);
+  [['X',[L[0],0,0],6,0],['Y',[0,L[1],0],-16,0],['Z',[0,0,L[2]],-5,-8]].forEach(a=>{add(s,'l',[I(0,0,0),I(...a[1])],'ax');const q=I(...a[1]);add(s,'t',[[q[0]+a[2],q[1]+a[3]]],'',a[0])})}
+function dims(W,Dp,H){let s=step('B','<b>نقل الأبعاد:</b> الطول <b>'+W+'</b> من الأمامي، العمق <b>'+Dp+'</b> من الأفقي، الارتفاع <b>'+H+'</b> من الأمامي.',3200);
+  [[[W,0,0],W,8,14],[[0,Dp,0],Dp,-26,8],[[0,0,H],H,-28,0]].forEach(a=>{add(s,'l',[I(0,0,0),I(...a[0])],'hl',null,11);const q=I(...a[0]);add(s,'t',[[q[0]+a[2],q[1]+a[3]]],'',a[1],11)})}
+
+/* ===== المسألة 1 =====
+   لوح: x0..74 , y0..27 , z0..12  + شطفة 9×8 في الركنين الأماميين
+   بلوك أوسط: x19..55 , y0..27 , z0..26
+   شق مخفي من الخلف: x29..45 , y16..27 , z0..26  (عرض 16 وعمق 11) */
+function problem1(){
+  E=[];ST=[];K=4.5;
+  const W=74,YD=27,H=26,xs=40+S*W+120;
+  const F=(x,z)=>[40+S*x,200-S*z],T=(x,y)=>[40+S*x,250+S*(YD-y)],D=(y,z)=>[xs+S*(YD-y),200-S*z];
+  let s=step('A','<b>المعطى:</b> المسقط الأمامي (فوق) والأفقي (تحت). المطلوب المسقط <b>الجانبي من اليسار</b> وهيتحط على يمين الأمامي. الخطين المتقطعين في الأمامي هم حواف الشق من ورا.',3200);
+  add(s,'p',[F(0,0),F(74,0),F(74,12),F(55,12),F(55,26),F(19,26),F(19,12),F(0,12)],'given');
+  add(s,'l',[F(9,0),F(9,12)],'given');add(s,'l',[F(65,0),F(65,12)],'given');
+  add(s,'l',[F(29,0),F(29,26)],'hid');add(s,'l',[F(45,0),F(45,26)],'hid');
+  add(s,'p',[T(0,8),T(9,0),T(65,0),T(74,8),T(74,27),T(45,27),T(45,16),T(29,16),T(29,27),T(0,27)],'given');
+  add(s,'l',[T(19,0),T(19,27)],'given');add(s,'l',[T(55,0),T(55,27)],'given');
+  add(s,'t',[[40,218]],'','الأمامي');add(s,'t',[[40,380]],'','الأفقي');add(s,'t',[[xs,218]],'','الجانبي (المطلوب)');
+  common({F,T,W,YD,H,zs:[0,12,26],ys:[0,8,16,27],xs});
+  s=step('A','<b>الحدود الخارجية:</b> مستطيل 27×26، لأن البلوك الأوسط (ارتفاع 26) عمقه 27 كامل فهو اللي بيحدد الشكل الخارجي.',2800);
+  add(s,'p',[D(0,0),D(27,0),D(27,26),D(0,26)],'s3');
+  s=step('A','<b>الخطوط الداخلية الظاهرة:</b> خط الارتفاع 12 على العرض كله (سطح اللوح)، وخط رأسي عند عمق 8 هو حافة الشطفة. التظليل: الأفتح = الأقرب ليك.',3400);
+  add(s,'p',[D(8,0),D(0,0),D(0,12),D(8,12)],'s2');add(s,'p',[D(27,0),D(8,0),D(8,12),D(27,12)],'s1');add(s,'p',[D(27,12),D(0,12),D(0,26),D(27,26)],'s2');
+  s=step('A','<b>الخطوط المخفية:</b> الشق بيبدأ من الخلف عند عمق 16 ونازل بكل الارتفاع، وهو مستخبي ورا الوش الجانبي، فبنرسم خط <b>متقطع</b> رأسي عند عمق 16.',3000);
+  add(s,'l',[D(16,0),D(16,26)],'hid');
+  s=step('A','<b>المراجعة:</b> الارتفاعات 26 و12 مطابقة للأمامي، والأعماق 27 و8 و16 مطابقة للأفقي. المسقط الجانبي جاهز ✔',3000);
+  add(s,'t',[[xs+30,190]],'','✔ مطابق');
+  axes([90,40,34]);dims(74,27,26);
+  s=step('B','<b>الصندوق الأساسي</b> 74×27×26 بخطوط إنشاء رفيعة (خضراء). المجسم كله جواه.',3600);box(s,0,74,0,27,0,26,'con',14);
+  s=step('B','<b>اللوح:</b> كتلة 74×27×12 بخطوط صفراء.',3200);box(s,0,74,0,27,0,12,'con2',14);
+  s=step('B','<b>البلوك الأوسط:</b> من x=19 لـ55 (عرض 36) بعمق 27 كامل وارتفاع لحد 26.',3200);box(s,19,55,0,27,12,26,'con2',14);
+  s=step('B','<b>الشق والشطفتين:</b> الشق 16 عرض و11 عمق من الخلف، والشطفة 9×8 في كل ركن أمامي.',3600);
+  add(s,'l',[I(29,27,26),I(29,16,26)],'hl');add(s,'l',[I(29,16,26),I(45,16,26)],'hl');add(s,'l',[I(45,16,26),I(45,27,26)],'hl');
+  [0,12].forEach(z=>{add(s,'l',[I(0,8,z),I(9,0,z)],'hl');add(s,'l',[I(65,0,z),I(74,8,z)],'hl')});
+  s=step('B','<b>الشكل النهائي:</b> نخفّت خطوط الإنشاء ونظهر الأسطح: فوق فاتح، أمام متوسط، يسار غامق.',4200);
+  faces(s,[
+   [[[0,8,0],[0,27,0],[0,27,12],[0,8,12]],'fl'],[[[0,8,0],[9,0,0],[9,0,12],[0,8,12]],'fa'],
+   [[[9,0,0],[65,0,0],[65,0,12],[55,0,12],[55,0,26],[19,0,26],[19,0,12],[9,0,12]],'fa'],
+   [[[19,0,12],[19,27,12],[19,27,26],[19,0,26]],'fl'],[[[45,16,0],[45,27,0],[45,27,26],[45,16,26]],'fl'],
+   [[[0,8,12],[9,0,12],[19,0,12],[19,27,12],[0,27,12]],'ft'],[[[55,0,12],[65,0,12],[74,8,12],[74,27,12],[55,27,12]],'ft'],
+   [[[19,0,26],[55,0,26],[55,27,26],[45,27,26],[45,16,26],[29,16,26],[29,27,26],[19,27,26]],'ft']]);
+  s=step('B','<b>المقارنة:</b> الأمامي = طول × ارتفاع، الأفقي = طول × عمق، الجانبي = عمق × ارتفاع، والإيزومتريك بيجمعهم في صورة واحدة. 🔥',3200);
+  add(s,'t',[[300,40]],'','المسألة 1 ✔');
+}
+
+/* ===== المسألة 2 =====
+   قطاع أمامي: (0,0) (62,0) (62,12) (43,26) (19,26) (0,12) ممتد عمق 28
+   فتحتين: x0..8 و x54..62 ، y10..18 ، نازلين بكل الارتفاع */
+function problem2(){
+  E=[];ST=[];K=4.5;
+  const W=62,YD=28,H=26,xs=40+S*W+120,zq=12+14*8/19;
+  const F=(x,z)=>[40+S*x,200-S*z],T=(x,y)=>[40+S*x,250+S*(YD-y)],D=(y,z)=>[xs+S*(YD-y),200-S*z];
+  let s=step('A','<b>المعطى:</b> المسقط الأمامي (فوق) والأفقي (تحت). المطلوب المسقط <b>الجانبي من اليسار</b>. الخطين المتقطعين في الأمامي هم عمق الفتحتين الجانبيتين.',3200);
+  add(s,'p',[F(0,0),F(62,0),F(62,12),F(43,26),F(19,26),F(0,12)],'given');
+  add(s,'l',[F(8,0),F(8,zq)],'hid');add(s,'l',[F(54,0),F(54,zq)],'hid');
+  add(s,'p',[T(0,0),T(62,0),T(62,10),T(54,10),T(54,18),T(62,18),T(62,28),T(0,28),T(0,18),T(8,18),T(8,10),T(0,10)],'given');
+  add(s,'l',[T(19,0),T(19,28)],'given');add(s,'l',[T(43,0),T(43,28)],'given');
+  add(s,'t',[[40,218]],'','الأمامي');add(s,'t',[[40,380]],'','الأفقي');add(s,'t',[[xs,218]],'','الجانبي (المطلوب)');
+  common({F,T,W,YD,H,zs:[0,12,zq,26],ys:[0,10,18,28],xs});
+  s=step('A','<b>الحدود الخارجية:</b> مستطيل 28×26، لأن السطح العلوي (26) ممتد على العمق كله.',2800);
+  add(s,'p',[D(0,0),D(28,0),D(28,26),D(0,26)],'s3');
+  s=step('A','<b>الخطوط الداخلية الظاهرة:</b> وش الجنب (ارتفاع 12) على الجانبين، وفي النص فتحة عمقها 8 بيبان قاعها (ارتفاع '+(+zq.toFixed(1))+') عند أعلى نقطة من الجنب المائل. والمائل فوق بيبان أغمق.',3600);
+  add(s,'p',[D(28,12),D(0,12),D(0,26),D(28,26)],'s2');add(s,'p',[D(10,0),D(0,0),D(0,12),D(10,12)],'s1');add(s,'p',[D(28,0),D(18,0),D(18,12),D(28,12)],'s1');add(s,'p',[D(18,0),D(10,0),D(10,zq),D(18,zq)],'s3');
+  s=step('A','<b>الخطوط المخفية:</b> الفتحة اليمين مخفية، بس خطوطها بتنطبق بالظبط على خطوط الفتحة الظاهرة، فالخط المتصل بيغطيها ومفيش خطوط متقطعة جديدة.',3000);
+  add(s,'t',[[xs+10,300]],'','لا خطوط مخفية جديدة');
+  s=step('A','<b>المراجعة:</b> الارتفاعات 26 و12 مطابقة للأمامي، والأعماق 28 و10 و18 مطابقة للأفقي. المسقط الجانبي جاهز ✔',3000);
+  add(s,'t',[[xs+30,190]],'','✔ مطابق');
+  axes([76,40,34]);dims(62,28,26);
+  s=step('B','<b>الصندوق الأساسي</b> 62×28×26 بخطوط إنشاء رفيعة (خضراء). المجسم كله جواه.',3600);box(s,0,62,0,28,0,26,'con',14);
+  const P=y=>[[0,0],[62,0],[62,12],[43,26],[19,26],[0,12]].map(p=>I(p[0],y,p[1]));
+  s=step('B','<b>القطاع الأمامي:</b> نرسمه على الوش الأمامي (y=0) ونمده بعمق 28 على الوش الخلفي، ونوصل الأركان.',3600);
+  add(s,'p',P(0),'con2');add(s,'p',P(28),'con2');[0,1,2,3,4,5].forEach(i=>add(s,'l',[P(0)[i],P(28)[i]],'con2'));
+  s=step('B','<b>الفتحتين:</b> مربع 8×8 في النص على الجنبين (y من 10 لـ18)، بينزلوا بكل الارتفاع.',3200);
+  add(s,'p',[I(0,10,0),I(8,10,0),I(8,18,0),I(0,18,0)],'hl');add(s,'p',[I(54,10,0),I(62,10,0),I(62,18,0),I(54,18,0)],'hl');
+  s=step('B','<b>الشكل النهائي:</b> نخفّت خطوط الإنشاء ونظهر الأسطح: فوق فاتح، أمام متوسط، يسار غامق.',4200);
+  const zr=26-14*11/19;
+  faces(s,[
+   [[[0,0,0],[62,0,0],[62,0,12],[43,0,26],[19,0,26],[0,0,12]],'fa'],
+   [[[0,0,0],[0,10,0],[0,10,12],[0,0,12]],'fl'],[[[0,18,0],[0,28,0],[0,28,12],[0,18,12]],'fl'],
+   [[[8,10,0],[8,18,0],[8,18,zq],[8,10,zq]],'fl'],[[[0,18,0],[8,18,0],[8,18,zq],[0,18,12]],'fa'],
+   [[[0,0,12],[19,0,26],[19,28,26],[0,28,12],[0,18,12],[8,18,zq],[8,10,zq],[0,10,12]],'ft'],
+   [[[19,0,26],[43,0,26],[43,28,26],[19,28,26]],'ft'],
+   [[[43,0,26],[62,0,12],[62,10,12],[54,10,zr],[54,18,zr],[62,18,12],[62,28,12],[43,28,26]],'ft'],
+   [[[54,18,0],[62,18,0],[62,18,12],[54,18,zr]],'fa']]);
+  s=step('B','<b>المقارنة:</b> الأمامي = طول × ارتفاع، الأفقي = طول × عمق، الجانبي = عمق × ارتفاع، والإيزومتريك بيجمعهم في صورة واحدة. 🔥',3200);
+  add(s,'t',[[300,40]],'','المسألة 2 ✔');
+}
+
+/* خطوات المسقط الأفقي المشتركة (للمسائل اللي معطاها الأمامي + الجانبي) */
+function common3(c){
+  const {F,T,W,YD,H,xv,yv,xs}=c,r=40+S*W,zb=c.zb||220,R=a=>a.map(v=>+v.toFixed(1)).join(' و');let s;
+  s=step('A','<b>الأبعاد المشتركة:</b> الطول <b>'+W+'</b> موجود في الأمامي وهو نفسه طول الأفقي. والعمق <b>'+YD+'</b> موجود في الجانبي وهو نفسه عمق الأفقي. (الارتفاع '+H+' مشترك بين الأمامي والجانبي).',3000);
+  add(s,'l',[F(0,0),F(W,0)],'hl',null,8);add(s,'l',[T(0,0),T(W,0)],'hl',null,8);add(s,'t',[[40+S*W/2-14,zb+14]],'','الطول '+W,8);
+  add(s,'l',[[xs,zb],[xs+S*YD,zb]],'hl',null,8);add(s,'l',[T(W,0),T(W,YD)],'hl',null,8);add(s,'t',[[xs+S*YD/2-14,zb+14]],'','العمق '+YD,8);
+  s=step('A','<b>خطوط الطول:</b> ننزل خطوط رأسية من الأمامي (عند x = '+R(xv)+') لتحت، لأن الطول ثابت بين الأمامي والأفقي.',3200);
+  xv.forEach(x=>add(s,'l',[[40+S*x,zb],[40+S*x,250+S*YD+8]],'proj',null,8));
+  s=step('A','<b>خط 45°:</b> العمق بييجي من الجانبي. نرسم خط 45° (الأحمر) وننقل عليه الأعماق ('+R(yv)+') لتحت وبعدين ناحية الشمال، فالعرض في الجانبي بيتحول لعمق في الأفقي.',4200);
+  add(s,'l',[[xs,250],[xs+S*YD,250+S*YD]],'mit',null,8);
+  yv.forEach(y=>{const d=S*(YD-y);add(s,'l',[[xs+d,zb],[xs+d,250+d],[r,250+d]],'proj',null,8)});
+}
+
+/* ===== المسألة 3 =====
+   قطاع جانبي (y,z) ممتد على x 0..38 : (0,0) (30,0) (30,23) (13,46) (8,46) (8,23) (0,23)
+   فتحة مستطيلة x10..28 , z11..35 بتخترق العمق كله */
+function problem3(){
+  E=[];ST=[];K=4.5;
+  const W=38,YD=30,H=46,zb=220,xs=40+S*W+70,ye=30-12*17/23;
+  const F=(x,z)=>[40+S*x,zb-S*z],T=(x,y)=>[40+S*x,250+S*(YD-y)],D=(y,z)=>[xs+S*(YD-y),zb-S*z];
+  let s=step('A','<b>المعطى:</b> المسقط الأمامي (شمال) والجانبي من اليسار (يمين). المطلوب المسقط <b>الأفقي</b> وهيتحط تحت الأمامي. الخطين المتقطعين في الجانبي هما أرضية وسقف الفتحة.',3200);
+  add(s,'p',[F(0,0),F(38,0),F(38,46),F(0,46)],'given');add(s,'p',[F(10,11),F(28,11),F(28,35),F(10,35)],'given');
+  add(s,'l',[F(0,23),F(10,23)],'given');add(s,'l',[F(28,23),F(38,23)],'given');
+  add(s,'p',[D(0,0),D(30,0),D(30,23),D(13,46),D(8,46),D(8,23),D(0,23)],'given');
+  add(s,'l',[D(0,11),D(30,11)],'hid');add(s,'l',[D(ye,35),D(8,35)],'hid');
+  add(s,'t',[[40,26]],'','الأمامي');add(s,'t',[[xs,26]],'','الجانبي');add(s,'t',[[40,244]],'','الأفقي (المطلوب)');
+  common3({F,T,W,YD,H,xv:[0,10,28,38],yv:[0,8,13,ye,30],xs});
+  s=step('A','<b>الحدود الخارجية:</b> مستطيل 38×30.',2600);
+  add(s,'p',[T(0,0),T(38,0),T(38,30),T(0,30)],'s2');
+  s=step('A','<b>الخطوط الظاهرة:</b> السطح العلوي العريض بين عمق 8 و13 (الأفتح لأنه الأعلى)، وفتحة الشق في الدرجة الأمامية (عمق 0 لـ8)، وفتحة السقف المفتوحة في الخلف من عمق '+(+ye.toFixed(1))+' لـ30 (هنا السقف المائل بيقطع الفتحة).',3800);
+  add(s,'p',[T(0,8),T(38,8),T(38,13),T(0,13)],'s1');
+  add(s,'p',[T(10,0),T(28,0),T(28,8),T(10,8)],'s3');add(s,'p',[T(10,ye),T(28,ye),T(28,30),T(10,30)],'s3');
+  s=step('A','<b>الخطوط المخفية:</b> جدران الفتحة تحت السقف من عمق 8 لحد '+(+ye.toFixed(1))+' مش بتبان من فوق، فبنرسمها <b>متقطعة</b> عند x=10 و x=28.',3000);
+  add(s,'l',[T(10,8),T(10,ye)],'hid');add(s,'l',[T(28,8),T(28,ye)],'hid');
+  s=step('A','<b>المراجعة:</b> الأطوال 38 و10 و28 مطابقة للأمامي، والأعماق 30 و8 و13 مطابقة للجانبي. المسقط الأفقي جاهز ✔',3000);
+  add(s,'t',[[40+S*W+10,300]],'','✔ مطابق');
+  axes([50,38,56]);dims(38,30,46);
+  s=step('B','<b>الصندوق الأساسي</b> 38×30×46 بخطوط إنشاء رفيعة (خضراء). المجسم كله جواه.',3600);box(s,0,38,0,30,0,46,'con',14);
+  const P=x=>[[0,0],[30,0],[30,23],[13,46],[8,46],[8,23],[0,23]].map(p=>I(x,p[0],p[1]));
+  s=step('B','<b>القطاع الجانبي:</b> نرسمه على الوش الشمال (x=0) ونمده بطول 38، ونوصل الأركان.',3600);
+  add(s,'p',P(0),'con2');add(s,'p',P(38),'con2');[0,1,2,3,4,5,6].forEach(i=>add(s,'l',[P(0)[i],P(38)[i]],'con2'));
+  s=step('B','<b>الفتحة:</b> مستطيل 18×24 (x من 10 لـ28، ارتفاع من 11 لـ35) بيخترق المجسم بعمقه كله.',3400);
+  add(s,'p',[I(10,0,11),I(28,0,11),I(28,0,35),I(10,0,35)],'hl');
+  add(s,'l',[I(10,0,11),I(10,30,11)],'hl');add(s,'l',[I(28,0,11),I(28,30,11)],'hl');
+  s=step('B','<b>الشكل النهائي:</b> نخفّت خطوط الإنشاء ونظهر الأسطح. السطح المائل في الخلف مش ظاهر من الزاوية دي، فبيستخبى ورا الجزء العالي.',4200);
+  faces(s,[
+   [[[0,0,0],[0,30,0],[0,30,23],[0,13,46],[0,8,46],[0,8,23],[0,0,23]],'fl'],
+   [[[0,0,0],[38,0,0],[38,0,23],[28,0,23],[28,0,11],[10,0,11],[10,0,23],[0,0,23]],'fa'],
+   [[[0,0,23],[10,0,23],[10,8,23],[0,8,23]],'ft'],[[[28,0,23],[38,0,23],[38,8,23],[28,8,23]],'ft'],
+   [[[0,8,23],[10,8,23],[10,8,35],[28,8,35],[28,8,23],[38,8,23],[38,8,46],[0,8,46]],'fa'],
+   [[[0,8,46],[38,8,46],[38,13,46],[0,13,46]],'ft'],
+   [[[28,0,11],[28,0,23],[28,8,23],[28,8,35],[28,26,17],[28,26,11]],'fl',1001],
+   [[[10,0,11],[28,0,11],[28,26,11],[22,20,11],[22,12,11]],'ft',1000]]);
+  s=step('B','<b>المقارنة:</b> الأمامي = طول × ارتفاع، الأفقي = طول × عمق، الجانبي = عمق × ارتفاع، والإيزومتريك بيجمعهم في صورة واحدة. 🔥',3200);
+  add(s,'t',[[300,40]],'','المسألة 3 ✔');
+}
+
+/* ===== المسألة 4 =====
+   جسم مدبب: قطاع جانبي (y,z) = (0,0) (36,0) (23,45) (13,45) ممتد على x 0..32
+   + قدمين صغيرين x9..23 ارتفاع 18 قدام وورا
+   + مجرى ذيل الحمامة من فوق: (10,45) (22,45) (28,24) (4,24) بيخترق العمق كله */
+function problem4(){
+  E=[];ST=[];K=4.5;
+  const W=32,YD=36,H=45,zb=220,xs=40+S*W+70,lg=5.2,sy=13*24/45,sb=36-sy;
+  const F=(x,z)=>[40+S*x,zb-S*z],T=(x,y)=>[40+S*x,250+S*(YD-y)],D=(y,z)=>[xs+S*(YD-y),zb-S*z];
+  let s=step('A','<b>المعطى:</b> المسقط الأمامي (شمال) والجانبي من اليسار (يمين). المطلوب المسقط <b>الأفقي</b> وهيتحط تحت الأمامي. الخط المتقطع في الجانبي هو أرضية المجرى العلوي.',3200);
+  add(s,'p',[F(0,0),F(32,0),F(32,45),F(22,45),F(28,24),F(4,24),F(10,45),F(0,45)],'given');add(s,'p',[F(9,0),F(23,0),F(23,18),F(9,18)],'given');
+  add(s,'p',[D(0,0),D(0,18),D(lg,18),D(13,45),D(23,45),D(36-lg,18),D(36,18),D(36,0)],'given');
+  add(s,'l',[D(0,0),D(lg,18)],'given');add(s,'l',[D(36,0),D(36-lg,18)],'given');add(s,'l',[D(sy,24),D(sb,24)],'hid');
+  add(s,'t',[[40,26]],'','الأمامي');add(s,'t',[[xs,26]],'','الجانبي');add(s,'t',[[40,244]],'','الأفقي (المطلوب)');
+  common3({F,T,W,YD,H,xv:[0,4,9,10,22,23,28,32],yv:[0,lg,sy,13,23,sb,36-lg,36],xs});
+  s=step('A','<b>الحدود الخارجية:</b> مستطيل 32×36 (القاعدة).',2600);
+  add(s,'p',[T(0,0),T(32,0),T(32,36),T(0,36)],'s2');
+  s=step('A','<b>الخطوط الظاهرة:</b> السطحين العلويين (عمق 13 لـ23) على الجنبين، والقدمين (عمق 0 لـ5.2 وورا)، وقاع المجرى على شكل ساعة رملية: الأضيق عند السطح العلوي (12)، والأعرض عند الجوانب المائلة (24).',4000);
+  add(s,'p',[T(0,13),T(10,13),T(10,23),T(0,23)],'s1');add(s,'p',[T(22,13),T(32,13),T(32,23),T(22,23)],'s1');
+  add(s,'p',[T(4,sy),T(28,sy),T(22,13),T(22,23),T(28,sb),T(4,sb),T(10,23),T(10,13)],'s3');
+  add(s,'p',[T(9,0),T(23,0),T(23,lg),T(9,lg)],'s1');add(s,'p',[T(9,36-lg),T(23,36-lg),T(23,36),T(9,36)],'s1');
+  s=step('A','<b>الخطوط المخفية:</b> أركان قاع المجرى (x=4 و x=28) مستخبية تحت الجزء البارز من السطح العلوي، فبنرسمها <b>متقطعة</b>.',3000);
+  add(s,'l',[T(4,sy),T(4,sb)],'hid');add(s,'l',[T(28,sy),T(28,sb)],'hid');
+  s=step('A','<b>المراجعة:</b> الأطوال 32 و4 و9 و10 مطابقة للأمامي، والأعماق 36 و13 و23 و5.2 مطابقة للجانبي. المسقط الأفقي جاهز ✔',3000);
+  add(s,'t',[[40+S*W+10,300]],'','✔ مطابق');
+  axes([44,46,56]);dims(32,36,45);
+  s=step('B','<b>الصندوق الأساسي</b> 32×36×45 بخطوط إنشاء رفيعة (خضراء). المجسم كله جواه.',3600);box(s,0,32,0,36,0,45,'con',14);
+  const P=x=>[[0,0],[36,0],[23,45],[13,45]].map(p=>I(x,p[0],p[1]));
+  s=step('B','<b>الجسم المدبب:</b> قطاع شبه منحرف (قاعدة 36 وقمة 10) على الوش الشمال، ونمده بطول 32.',3600);
+  add(s,'p',P(0),'con2');add(s,'p',P(32),'con2');[0,1,2,3].forEach(i=>add(s,'l',[P(0)[i],P(32)[i]],'con2'));
+  s=step('B','<b>القدمين:</b> كتلة 14 عرض (x من 9 لـ23) وارتفاع 18 قدام وورا، بتبرز برا الوش المائل.',3400);
+  box(s,9,23,0,lg,0,18,'con2',14);box(s,9,23,36-lg,36,0,18,'con2',14);
+  s=step('B','<b>المجرى العلوي:</b> شبه منحرف (12 فوق و24 تحت وعمقه 21) بيتقطع على الوش المائل الأمامي والخلفي ويخترق العمق كله.',3600);
+  add(s,'p',[I(10,13,45),I(22,13,45),I(28,sy,24),I(4,sy,24)],'hl');add(s,'p',[I(10,23,45),I(22,23,45),I(28,sb,24),I(4,sb,24)],'hl');
+  s=step('B','<b>الشكل النهائي:</b> نخفّت خطوط الإنشاء ونظهر الأسطح. جدار المجرى الشمال مستخبي (ضد الاتجاه)، والجدار اليمين وأرضية المجرى بيبانوا جزئيًا.',4200);
+  faces(s,[
+   [[[0,0,0],[32,0,0],[32,13,45],[22,13,45],[28,sy,24],[4,sy,24],[10,13,45],[0,13,45]],'fa'],
+   [[[0,0,0],[0,36,0],[0,23,45],[0,13,45]],'fl'],
+   [[[0,13,45],[10,13,45],[10,23,45],[0,23,45]],'ft'],[[[22,13,45],[32,13,45],[32,23,45],[22,23,45]],'ft'],
+   [[[22,13,45],[22,23,45],[28,sb,24],[28,sy,24]],'fl',1001],
+   [[[4,sy,24],[28,sy,24],[28,sb,24],[4,sb,24]],'ft',1000],
+   [[[9,0,0],[23,0,0],[23,0,18],[9,0,18]],'fa',-100],[[[9,0,0],[9,0,18],[9,lg,18]],'fl',-100],[[[9,0,18],[23,0,18],[23,lg,18],[9,lg,18]],'ft',-100]]);
+  s=step('B','<b>المقارنة:</b> الأمامي = طول × ارتفاع، الأفقي = طول × عمق، الجانبي = عمق × ارتفاع، والإيزومتريك بيجمعهم في صورة واحدة. 🔥',3200);
+  add(s,'t',[[300,40]],'','المسألة 4 ✔');
+}
+
+/* ===== المسألة 5 =====
+   قطاع أمامي (x,z): (0,0) (68,0) (68,24) (16,24) (0,9) ممتد على عمق 28
+   شق x33..68 , y7..21 بيخترق الارتفاع كله ومفتوح من اليمين */
+function problem5(){
+  E=[];ST=[];K=4.5;
+  const W=68,YD=28,H=24,xs=40+S*W+120;
+  const F=(x,z)=>[40+S*x,200-S*z],T=(x,y)=>[40+S*x,250+S*(YD-y)],D=(y,z)=>[xs+S*(YD-y),200-S*z];
+  let s=step('A','<b>المعطى:</b> المسقط الأمامي (فوق) والأفقي (تحت). المطلوب المسقط <b>الجانبي من اليسار</b> وهيتحط على يمين الأمامي. الخط المتقطع في الأمامي هو بداية الشق.',3200);
+  add(s,'p',[F(0,0),F(68,0),F(68,24),F(16,24),F(0,9)],'given');add(s,'l',[F(33,0),F(33,24)],'hid');
+  add(s,'p',[T(0,0),T(68,0),T(68,7),T(33,7),T(33,21),T(68,21),T(68,28),T(0,28)],'given');add(s,'l',[T(16,0),T(16,28)],'given');
+  add(s,'t',[[40,218]],'','الأمامي');add(s,'t',[[40,380]],'','الأفقي');add(s,'t',[[xs,218]],'','الجانبي (المطلوب)');
+  common({F,T,W,YD,H,zs:[0,9,24],ys:[0,7,21,28],xs});
+  s=step('A','<b>الحدود الخارجية:</b> مستطيل 28×24، لأن الارتفاع 24 ممتد على العمق كله.',2800);
+  add(s,'p',[D(0,0),D(28,0),D(28,24),D(0,24)],'s3');
+  s=step('A','<b>الخطوط الداخلية الظاهرة:</b> وش الجنب الشمال (ارتفاع 9) هو الأقرب فهو الأفتح، وفوقه السطح المائل لحد ارتفاع 24 وهو أغمق.',3400);
+  add(s,'p',[D(28,0),D(0,0),D(0,9),D(28,9)],'s1');add(s,'p',[D(28,9),D(0,9),D(0,24),D(28,24)],'s2');
+  s=step('A','<b>الخطوط المخفية:</b> الشق في الناحية البعيدة مستخبي ورا الجسم، فبنرسم حافتيه (عمق 7 و21) <b>متقطعتين</b> نازلين بكل الارتفاع.',3000);
+  add(s,'l',[D(7,0),D(7,24)],'hid');add(s,'l',[D(21,0),D(21,24)],'hid');
+  s=step('A','<b>المراجعة:</b> الارتفاعات 24 و9 مطابقة للأمامي، والأعماق 28 و7 و21 مطابقة للأفقي. المسقط الجانبي جاهز ✔',3000);
+  add(s,'t',[[xs+30,190]],'','✔ مطابق');
+  axes([80,36,34]);dims(68,28,24);
+  s=step('B','<b>الصندوق الأساسي</b> 68×28×24 بخطوط إنشاء رفيعة (خضراء). المجسم كله جواه.',3600);box(s,0,68,0,28,0,24,'con',14);
+  const P=y=>[[0,0],[68,0],[68,24],[16,24],[0,9]].map(p=>I(p[0],y,p[1]));
+  s=step('B','<b>القطاع الأمامي:</b> نرسمه على الوش الأمامي (y=0) ونمده بعمق 28، ونوصل الأركان.',3600);
+  add(s,'p',P(0),'con2');add(s,'p',P(28),'con2');[0,1,2,3,4].forEach(i=>add(s,'l',[P(0)[i],P(28)[i]],'con2'));
+  s=step('B','<b>الشق:</b> عرضه 14 (y من 7 لـ21) من x=33 لحد الطرف اليمين، وبينزل بكل الارتفاع.',3400);
+  add(s,'l',[I(68,7,24),I(33,7,24)],'hl');add(s,'l',[I(33,7,24),I(33,21,24)],'hl');add(s,'l',[I(33,21,24),I(68,21,24)],'hl');
+  s=step('B','<b>الشكل النهائي:</b> نخفّت خطوط الإنشاء ونظهر الأسطح: فوق فاتح، أمام متوسط، يسار غامق.',4200);
+  faces(s,[
+   [[[33,21,0],[68,21,0],[68,21,24],[33,21,24]],'fa',1000],
+   [[[0,0,0],[68,0,0],[68,0,24],[16,0,24],[0,0,9]],'fa'],
+   [[[0,0,0],[0,28,0],[0,28,9],[0,0,9]],'fl'],
+   [[[0,0,9],[16,0,24],[16,28,24],[0,28,9]],'ft'],
+   [[[16,0,24],[68,0,24],[68,7,24],[33,7,24],[33,21,24],[68,21,24],[68,28,24],[16,28,24]],'ft']]);
+  s=step('B','<b>المقارنة:</b> الأمامي = طول × ارتفاع، الأفقي = طول × عمق، الجانبي = عمق × ارتفاع، والإيزومتريك بيجمعهم في صورة واحدة. 🔥',3200);
+  add(s,'t',[[300,40]],'','المسألة 5 ✔');
+}
+
+/* ===== المسألة 6 =====
+   جسم سفلي: x0..36 , y0..28 , z0..24
+   جزء عالي ورا: x0..36 , y17..28 , z24..54  (عرضه 11)
+   شق: x10..26 , y17..28 , z34..54
+   فتحة نص دايرة R11 مركزها x=18 على الأرض وبتخترق العمق كله */
+function problem6(){
+  E=[];ST=[];K=4.5;
+  const W=36,YD=28,H=54,zb=232,xs=40+S*W+70;
+  const F=(x,z)=>[40+S*x,zb-S*z],T=(x,y)=>[40+S*x,250+S*(YD-y)],D=(y,z)=>[xs+S*(YD-y),zb-S*z];
+  const arc=[],ar3=[];for(let a=0;a<=180;a+=10){const r=a*Math.PI/180;arc.push(F(18+11*Math.cos(r),11*Math.sin(r)));ar3.push([18+11*Math.cos(r),11*Math.sin(r)])}
+  let s=step('A','<b>المعطى:</b> المسقط الأمامي (شمال) والجانبي من اليسار (يمين). المطلوب المسقط <b>الأفقي</b> وهيتحط تحت الأمامي. الخطين المتقطعين في الجانبي: أرضية الشق (34) وأعلى الفتحة الدايرية (11).',3200);
+  add(s,'l',[F(7,0),F(0,0),F(0,54),F(10,54),F(10,34),F(26,34),F(26,54),F(36,54),F(36,0),F(29,0)],'given');add(s,'l',[F(0,24),F(36,24)],'given');add(s,'l',arc,'given');
+  add(s,'p',[D(0,0),D(28,0),D(28,54),D(17,54),D(17,24),D(0,24)],'given');
+  add(s,'l',[D(17,34),D(28,34)],'hid');add(s,'l',[D(0,11),D(28,11)],'hid');
+  add(s,'t',[[40,10]],'','الأمامي');add(s,'t',[[xs,10]],'','الجانبي');add(s,'t',[[40,244]],'','الأفقي (المطلوب)');
+  common3({F,T,W,YD,H,xv:[0,7,10,26,29,36],yv:[0,17,28],xs,zb});
+  s=step('A','<b>الحدود الخارجية:</b> مستطيل 36×28.',2600);
+  add(s,'p',[T(0,0),T(36,0),T(36,28),T(0,28)],'s3');
+  s=step('A','<b>الخطوط الظاهرة:</b> الجزء العالي ورا (عمق 17 لـ28) سطحيه على الجنبين هم الأفتح، والشق بينهم قاعه أعمق (34)، والجزء الأمامي الواطي (24) هو الأغمق.',3800);
+  add(s,'p',[T(0,17),T(10,17),T(10,28),T(0,28)],'s1');add(s,'p',[T(26,17),T(36,17),T(36,28),T(26,28)],'s1');add(s,'p',[T(10,17),T(26,17),T(26,28),T(10,28)],'s2');
+  s=step('A','<b>الخطوط المخفية:</b> الفتحة الدايرية تحت الجسم بتخترق العمق كله، وأقصى عرض لها (14 لـ22 يمين وشمال المركز) عند x=7 و x=29، فبنرسمهم <b>متقطعين</b> على العمق كله.',3200);
+  add(s,'l',[T(7,0),T(7,28)],'hid');add(s,'l',[T(29,0),T(29,28)],'hid');
+  s=step('A','<b>المراجعة:</b> الأطوال 36 و10 و26 و7 و29 مطابقة للأمامي، والأعماق 28 و17 مطابقة للجانبي. المسقط الأفقي جاهز ✔',3000);
+  add(s,'t',[[40+S*W+10,310]],'','✔ مطابق');
+  axes([50,40,64]);dims(36,28,54);
+  s=step('B','<b>الصندوق الأساسي</b> 36×28×54 بخطوط إنشاء رفيعة (خضراء). المجسم كله جواه.',3600);box(s,0,36,0,28,0,54,'con',14);
+  s=step('B','<b>الجزء السفلي:</b> كتلة 36×28×24 بخطوط صفراء.',3200);box(s,0,36,0,28,0,24,'con2',14);
+  s=step('B','<b>الجزء العالي:</b> بعرض 11 ورا (y من 17 لـ28) وارتفاع لحد 54.',3200);box(s,0,36,17,28,24,54,'con2',14);
+  s=step('B','<b>الشق والفتحة:</b> شق 16 عرض (x من 10 لـ26) بينزل لارتفاع 34، وفتحة نص دايرة R11 في الأرض بتخترق العمق كله.',3600);
+  add(s,'p',[I(10,17,34),I(26,17,34),I(26,17,54),I(10,17,54)],'hl');add(s,'p',[I(10,28,34),I(26,28,34),I(26,28,54),I(10,28,54)],'hl');
+  add(s,'l',ar3.map(p=>I(p[0],0,p[1])),'hl');add(s,'l',ar3.map(p=>I(p[0],28,p[1])),'hl');
+  s=step('B','<b>الشكل النهائي:</b> نخفّت خطوط الإنشاء ونظهر الأسطح. من الزاوية دي بيبان جزء صغير من جدار الفتحة الداخلي (يمين).',4200);
+  const A3=[],B3=[];for(let a=0;a<=40;a+=5){const r=a*Math.PI/180,c=Math.cos(r),sn=Math.sin(r);A3.push([18+11*c,0,11*sn]);B3.push([18+11*c,11*(c-sn),11*sn])}
+  const fr=[];for(let a=180;a>=0;a-=10){const r=a*Math.PI/180;fr.push([18+11*Math.cos(r),0,11*Math.sin(r)])}
+  faces(s,[
+   [[[26,17,34],[26,28,34],[26,28,54],[26,17,54]],'fl',1001],[[[10,17,34],[26,17,34],[26,28,34],[10,28,34]],'ft',1000],
+   [A3.concat(B3.reverse()),'fl',1002],
+   [[[0,0,0]].concat(fr,[[36,0,0],[36,0,24],[0,0,24]]),'fa'],
+   [[[0,0,0],[0,28,0],[0,28,54],[0,17,54],[0,17,24],[0,0,24]],'fl'],
+   [[[0,0,24],[36,0,24],[36,17,24],[0,17,24]],'ft'],
+   [[[0,17,24],[36,17,24],[36,17,54],[26,17,54],[26,17,34],[10,17,34],[10,17,54],[0,17,54]],'fa'],
+   [[[0,17,54],[10,17,54],[10,28,54],[0,28,54]],'ft'],[[[26,17,54],[36,17,54],[36,28,54],[26,28,54]],'ft']]);
+  s=step('B','<b>المقارنة:</b> الأمامي = طول × ارتفاع، الأفقي = طول × عمق، الجانبي = عمق × ارتفاع، والإيزومتريك بيجمعهم في صورة واحدة. 🔥',3200);
+  add(s,'t',[[300,40]],'','المسألة 6 ✔');
+}
+
+/* ===== المحرك الاحترافي ===== */
+const NSv='http://www.w3.org/2000/svg';
+const $=id=>document.getElementById(id);
+const svgs={A:$('A'),B:$('B')},pens={};
+const SV=(p,w)=>'<svg viewBox="0 0 24 24" width="'+(w||22)+'" height="'+(w||22)+'" fill="currentColor" aria-hidden="true">'+p+'</svg>';
+const IC={sound:'<path d="M3 9v6h4l5 4V5L7 9H3zm12.5-.5a5 5 0 0 1 0 7m2.5-9.5a9 9 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width=2 stroke-linecap="round" stroke-linejoin="round"/>',mute:'<path d="M3 9v6h4l5 4V5L7 9H3zm12-1 6 8m0-8-6 8" fill="none" stroke="currentColor" stroke-width=2 stroke-linecap="round" stroke-linejoin="round"/>',expand:'<path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" fill="none" stroke="currentColor" stroke-width=2 stroke-linecap="round" stroke-linejoin="round"/>',play:'<path d="M8 5v14l11-7z"/>',pause:'<path d="M7 5h4v14H7zm6 0h4v14h-4z"/>',prev:'<path d="M6 5h2v14H6zm13 0v14L9 12z"/>',next:'<path d="M16 5h2v14h-2zM5 5v14l10-7z"/>',rs:'<path d="M12 5V2L7 6.5 12 11V8a5 5 0 1 1-5 5H5a7 7 0 1 0 7-8z"/>',zoom:'<path d="M10 4a6 6 0 1 0 3.5 10.9l4.8 4.8 1.4-1.4-4.8-4.8A6 6 0 0 0 10 4zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/>',sun:'<path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM11 1h2v3h-2zm0 19h2v3h-2zM1 11h3v2H1zm19 0h3v2h-3zM4.2 5.6l1.4-1.4 2.1 2.1-1.4 1.4zm12.1 12.1 1.4-1.4 2.1-2.1 1.4 1.4zM5.6 19.8l-1.4-1.4 2.1-2.1 1.4 1.4zM17.7 7.7l-1.4-1.4 2.1-2.1 1.4 1.4z"/>',moon:'<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>'};
+let curN=1,total=0,t=0,playing=false,sp=0.8,last=0,all=false,mk=0,zi=0,pauseEach=false,tabP='A',lastIdx=-1,lastVis='',lastA=0,drawEl=null,soundOn=true,audioCtx=null;
+const ZS=[1,1.5,2.2];
+const clamp=x=>Math.max(0,Math.min(1,x));
+const end=i=>ST[i].start+ST[i].d;
+const fmt=n=>String(+(+n).toFixed(1));
+const AX=['X','Y','Z'],AXA=['الطول (X)','العمق (Y)','الارتفاع (Z)'],NMC=['x','y','z'];
+const SRC=['القيمة دي بتتاخد من المسقط الأمامي (أو الأفقي)','القيمة دي بتتاخد من المسقط الأفقي (أو الجانبي)','القيمة دي بتتاخد من المسقط الأمامي (أو الجانبي)'];
+const DIR=['بزاوية 30° ناحية اليمين لفوق — وده اتجاه الطول','بزاوية 30° ناحية اليسار لفوق — وده اتجاه العمق','رأسي لفوق — وده اتجاه الارتفاع'];
+const ttlOf=h=>{const m=/<b>(.*?)<\/b>/.exec(h||'');return m?m[1].replace(/[:：]\s*$/,''):''};
+const bodyOf=h=>(h||'').replace(/^.*?<\/b>\s*/,'');
+
+/* ===== تفصيل خطوات الإيزومتريك لخطوات صغيرة بمقاسات ===== */
+function axisOf(a,b){if(!a.w||!b.w)return -1;const d=[0,1,2].filter(k=>Math.abs(b.w[k]-a.w[k])>1e-6);return d.length===1?d[0]:-1}
+function lenOf(a,b){return Math.sqrt([0,1,2].reduce((m,k)=>m+Math.pow(b.w[k]-a.w[k],2),0))}
+function constOf(e){const W=e.pts.map(p=>p.w);if(W.some(w=>!w))return null;for(let k=0;k<3;k++){if(W.every(w=>Math.abs(w[k]-W[0][k])<1e-6))return {k:k,v:W[0][k]}}return null}
+function faceInfo(e){const W=e.pts.map(p=>p.w);if(W.some(w=>!w))return null;const r=[0,1,2].map(k=>{const v=W.map(w=>w[k]);return [Math.min.apply(null,v),Math.max.apply(null,v)]});return {r:r,cst:r.findIndex(a=>Math.abs(a[1]-a[0])<1e-6),n:W.length}}
+function descFace(f){if(!f)return '';const L=a=>fmt(a[1]-a[0]),R=a=>'من '+fmt(a[0])+' لـ '+fmt(a[1]),x=f.r[0],y=f.r[1],z=f.r[2];let s;
+  if(f.cst===2)s='سطح أفقي على ارتفاع <b>z = '+fmt(z[0])+'</b>: طوله <b>'+L(x)+'</b> (x '+R(x)+') وعمقه <b>'+L(y)+'</b> (y '+R(y)+').';
+  else if(f.cst===1)s='وجه رأسي أمامي عند <b>y = '+fmt(y[0])+'</b>: طوله <b>'+L(x)+'</b> (x '+R(x)+') وارتفاعه <b>'+L(z)+'</b> (z '+R(z)+').';
+  else if(f.cst===0)s='وجه رأسي جانبي عند <b>x = '+fmt(x[0])+'</b>: عمقه <b>'+L(y)+'</b> (y '+R(y)+') وارتفاعه <b>'+L(z)+'</b> (z '+R(z)+').';
+  else s='وجه مائل: بيغطي طول <b>'+L(x)+'</b> وعمق <b>'+L(y)+'</b> وارتفاع <b>'+L(z)+'</b>، وحدوده بتتحدد من نقط الإسقاط.';
+  if(f.n>4)s+=' الشكل له '+f.n+' ركن (فيه تدريجات أو شقوق).';return s}
+function labFace(f){if(!f)return '';const L=a=>fmt(a[1]-a[0]);if(f.cst===2)return L(f.r[0])+'×'+L(f.r[1]);if(f.cst===1)return L(f.r[0])+'×'+L(f.r[2]);if(f.cst===0)return L(f.r[1])+'×'+L(f.r[2]);return ''}
+function mkTicks(l,dv){const a=l.pts[0],b=l.pts[1],L=lenOf(a,b),out=[],dx=b[0]-a[0],dy=b[1]-a[1],m=Math.hypot(dx,dy)||1,px=-dy/m*5,py=dx/m*5;
+  for(let u=10;u<L-0.01;u+=10){const f=u/L,w=[0,1,2].map(k=>a.w[k]+(b.w[k]-a.w[k])*f),P=I(w[0],w[1],w[2]);out.push({type:'l',pts:[[P[0]-px,P[1]-py],[P[0]+px,P[1]+py]],cls:'tick',txt:null,dim:dv})}return out}
+function groupsOf(els){const g=[];els.forEach(e=>{if(e.type==='l'||!g.length)g.push([e]);else g[g.length-1].push(e)});return g}
+
+function refine(){
+  const os=ST,oe=E,map=[];ST=[];E=[];
+  const push=(v,txt,sub,ctx,d,list)=>{const si=ST.length;ST.push({v:v,txt:txt,sub:sub||'',ctx:ctx||'',d:d});list.forEach(e=>{E.push(Object.assign({},e,{st:si}))})};
+  os.forEach((s,i)=>{
+    map[i]=ST.length;
+    const els=oe.filter(e=>e.st===i),T0=ttlOf(s.txt),ctx=bodyOf(s.txt);
+    if(s.v!=='B'||!els.length){push(s.v,s.txt,'','',s.d,els);return}
+    if(els.every(e=>e.type==='p'&&/^f[tal]$/.test(e.cls))){
+      const NM={ft:'السطح العلوي',fa:'الوجه الأمامي',fl:'الوجه الأيسر'},SR={ft:'من المسقط الأفقي',fa:'من المسقط الأمامي',fl:'من المسقط الجانبي'};
+      els.forEach((e,k)=>{const f=faceInfo(e),si=ST.length,list=[e],lab=labFace(f);
+        if(lab){const cx=e.pts.reduce((m,p)=>m+p[0],0)/e.pts.length,cy=e.pts.reduce((m,p)=>m+p[1],0)/e.pts.length;list.push({type:'t',pts:[[cx,cy]],cls:'dimlbl',txt:lab,dim:99,gone:si+1})}
+        push('B','<b>'+T0+' · وجه '+(k+1)+'/'+els.length+':</b> '+NM[e.cls]+' ('+SR[e.cls]+')',descFace(f),ctx,2800,list)});
+      return}
+    if(els.some(e=>e.cls==='ax')){
+      groupsOf(els).forEach(g=>{const l=g[0],k=axisOf(l.pts[0],l.pts[1]);push('B','<b>'+T0+' · محور '+AX[k]+':</b> '+DIR[k],'بنبدأ من نقطة الأصل (0 ، 0 ، 0) وبنمد المحور لبرّه عشان نقيس عليه بعد كده.',ctx,2400,g)});
+      return}
+    if(els.some(e=>e.cls==='hl')){
+      groupsOf(els).forEach(g=>{const l=g[0],k=axisOf(l.pts[0],l.pts[1]),L=fmt(lenOf(l.pts[0],l.pts[1])),tk=mkTicks(l,l.dim);
+        push('B','<b>'+T0+' · نقيس '+AXA[k]+':</b> '+L+' وحدة',SRC[k]+'. بنقسم المحور لتدريجات كل 10 وبنعلّم <b>'+L+'</b> عند النهاية.',ctx,2000+tk.length*200,[l].concat(tk,g.slice(1)))});
+      return}
+    const lines=els.filter(e=>e.type==='l'&&/^(con|con2|mit)$/.test(e.cls));
+    if(lines.length&&lines.length===els.length){
+      const pl=lines.filter(e=>e.pts.length>2),sg=lines.filter(e=>e.pts.length===2),parts=[];
+      pl.forEach((e,j)=>{const c=constOf(e),sfx=pl.length>1?' '+(j+1)+'/'+pl.length:'';
+        parts.push({lb:'نرسم المقطع'+sfx,tx:c?'على المستوى <b>'+NMC[c.k]+' = '+fmt(c.v)+'</b> (شكل من '+(e.pts.length-1)+' ضلع)':'مضلع من '+(e.pts.length-1)+' ضلع',dt:'ده الشكل اللي بنسحبه بعد كده بعمق المجسم.',d:2400,list:[e]})});
+      [0,1,2,-1].forEach(k=>{const g=sg.filter(e=>axisOf(e.pts[0],e.pts[1])===k);if(!g.length)return;
+        const u=Array.from(new Set(g.map(e=>fmt(lenOf(e.pts[0],e.pts[1]))))),lt=u.length===1?'طول كل واحد <b>'+u[0]+'</b>':'بأطوال <b>'+u.join('</b> و<b>')+'</b>';
+        parts.push({lb:k>=0?'حروف موازية لمحور '+AX[k]:'حروف مائلة',tx:g.length+(g.length>1?' حروف':' حرف')+'، '+lt,dt:k>=0?SRC[k]+'.':'بتوصّل بين النقط اللي حددناها على الحواف.',d:Math.min(4600,1600+260*g.length),list:g})});
+      if(parts.length<2){push('B',s.txt,parts.length?parts[0].dt:'','',s.d,els)}
+      else parts.forEach(p=>push('B','<b>'+T0+' · '+p.lb+':</b> '+p.tx,p.dt,ctx,p.d,p.list));
+      return}
+    push('B',s.txt,'','',s.d,els)});
+  E.forEach(e=>{if(e.dim<99){const m=map[e.dim];e.dim=m==null?99:m}});
+  lastA=-1;ST.forEach((s,i)=>{if(s.v==='A')lastA=i});if(lastA<0)lastA=0}
+
+/* ===== بناء الصفحة للمسألة ===== */
+function build(n){
+  if(n>NP)n=1;curN=n;K=4.5;({2:problem2,3:problem3,4:problem4,5:problem5,6:problem6}[n]||problem1)();
+  refine();
+  let c=0;ST.forEach(s=>{s.d*=1.5;s.start=c;c+=s.d});total=c;
+  const cnt={},idx={};E.forEach(e=>{cnt[e.st]=(cnt[e.st]||0)+1});
+  svgs.A.innerHTML='';svgs.B.innerHTML='';drawEl=null;lastIdx=-1;lastVis='';
+  E.forEach(e=>{
+    e.i=idx[e.st]=(idx[e.st]==null?0:idx[e.st]+1);e.n=cnt[e.st];e.k=null;e.mp=null;
+    const tgt=svgs[ST[e.st].v];let n;
+    if(e.type==='t'){n=document.createElementNS(NSv,'text');n.setAttribute('x',e.pts[0][0]);n.setAttribute('y',e.pts[0][1]);if(e.cls)n.setAttribute('class',e.cls);if(e.cls==='dimlbl')n.setAttribute('text-anchor','middle');n.textContent=e.txt;n.style.opacity=0}
+    else if(e.type==='d'){n=document.createElementNS(NSv,'circle');n.setAttribute('cx',e.pts[0][0]);n.setAttribute('cy',e.pts[0][1]);n.setAttribute('r',0);n.setAttribute('class',e.cls)}
+    else{
+      const d='M'+e.pts.map(p=>p[0].toFixed(1)+' '+p[1].toFixed(1)).join('L')+(e.type==='p'?'Z':'');
+      n=document.createElementNS(NSv,'path');n.setAttribute('d',d);n.setAttribute('class',e.cls);
+      if(/^(proj|mit|con|con2|hid)$/.test(e.cls)){
+        const id='m'+(mk++),m=document.createElementNS(NSv,'mask'),mp=document.createElementNS(NSv,'path');
+        m.setAttribute('id',id);m.setAttribute('maskUnits','userSpaceOnUse');m.setAttribute('x',0);m.setAttribute('y',0);m.setAttribute('width',720);m.setAttribute('height',520);
+        mp.setAttribute('d',d);mp.setAttribute('pathLength',1);mp.setAttribute('fill','none');mp.setAttribute('stroke','#fff');mp.setAttribute('stroke-width',10);mp.style.strokeDasharray=1;mp.style.strokeDashoffset=1;
+        m.appendChild(mp);tgt.appendChild(m);n.setAttribute('mask','url(#'+id+')');n.style.strokeDasharray='0.1 6';n.style.strokeLinecap='round';n.style.strokeWidth=e.cls==='mit'?3.4:2.6;e.mp=mp}
+      else{n.setAttribute('pathLength',1);n.style.strokeDasharray=1;n.style.strokeDashoffset=1;n.style.fillOpacity=0}}
+    e.el=n;tgt.appendChild(n)});
+  ['A','B'].forEach(k=>{const p=document.createElementNS(NSv,'circle');p.setAttribute('r',6);p.setAttribute('class','pen');p.style.opacity=0;svgs[k].appendChild(p);pens[k]=p});
+  buildMarks();buildSheet();
+}
+function buildMarks(){const m=$('marks');m.innerHTML='';ST.forEach(s=>{const d=document.createElement('i');d.style.insetInlineStart=(s.start/total*100)+'%';d.className='m'+s.v;m.appendChild(d)})}
+function buildSheet(){const box=$('sheetList');box.innerHTML='';let ph='';
+  ST.forEach((s,i)=>{if(s.v!==ph){ph=s.v;const h=document.createElement('div');h.className='sh-h';h.textContent=ph==='A'?'المرحلة الأولى — المسقط الثالث':'المرحلة الثانية — الإيزومتريك';box.appendChild(h)}
+    const b=document.createElement('button');b.className='sh-i';b.innerHTML='<i>'+(i+1)+'</i><span>'+(ttlOf(s.txt)||'خطوة')+'</span>';
+    b.onclick=()=>{t=end(i);playing=false;all=false;$('sheet').classList.remove('open');syncAll()};box.appendChild(b)})}
+function buildChips(){const c=$('chips');c.innerHTML='';
+  for(let n=1;n<=NP;n++){const b=document.createElement('button');b.className='chip'+(n===curN?' on':'');b.innerHTML='<b>'+n+'</b><span>مسألة</span>';b.onclick=()=>go(n);c.appendChild(b)}}
+function go(n){playing=false;all=false;t=0;tabP='A';build(n);buildChips();try{localStorage.setItem('pn',n)}catch(e){}syncAll()}
+
+/* ===== العرض ===== */
+function curIdx(){const i=ST.findIndex(s=>t<=s.start+s.d);return i<0?ST.length-1:i}
+function render(){
+  const ci=curIdx(),ei=all?(tabP==='A'?lastA:ST.length-1):ci;let pen=null;
+  E.forEach(e=>{
+    const s=ST[e.st];let p;
+    if(all||t>=s.start+s.d)p=1;else if(t<=s.start)p=0;else p=clamp(((t-s.start)/s.d)*e.n-e.i);
+    e.p=p;
+    const dm=ei>=e.dim,gn=e.gone!=null&&(all||ei>=e.gone);
+    if(p>0&&p<1&&(e.type==='l'||e.type==='p'))pen=e;
+    const key=p+(dm?'d':'')+(gn?'g':'');
+    if(e.k===key)return;e.k=key;
+    const el=e.el;
+    if(e.type==='t')el.style.opacity=gn?0:(dm?0.2*p:p);
+    else if(e.type==='d'){el.setAttribute('r',5*p);el.style.opacity=dm?0.2:1}
+    else{if(e.mp)e.mp.style.strokeDashoffset=1-p;else{el.style.strokeDashoffset=1-p;el.style.fillOpacity=p}el.style.opacity=dm?0.2:1}});
+  if(drawEl&&drawEl!==pen)drawEl.el.classList.remove('drawing');
+  if(pen&&drawEl!==pen)pen.el.classList.add('drawing');
+  drawEl=pen;
+  const vis=all?tabP:ST[ci].v;
+  svgs.A.style.display=vis==='A'?'block':'none';svgs.B.style.display=vis==='B'?'block':'none';
+  pens.A.style.opacity=0;pens.B.style.opacity=0;
+  if(pen&&!all&&ST[pen.st].v===vis){try{const L=pen.el.getTotalLength(),pt=pen.el.getPointAtLength(L*pen.p),pe=pens[vis];pe.setAttribute('cx',pt.x);pe.setAttribute('cy',pt.y);pe.style.opacity=1}catch(x){}}
+  if(vis!==lastVis){lastVis=vis;[].forEach.call(document.querySelectorAll('#seg button'),b=>b.classList.toggle('on',b.dataset.p===vis))}
+  if(ci!==lastIdx){const prev=lastIdx;lastIdx=ci;updateCard(ci);if(prev>=0&&ci!==prev){const host=$('presDrawing');host.classList.remove('step-change');void host.offsetWidth;host.classList.add('step-change');if(soundOn)playStepTone()}}
+  const pct=Math.round(t/total*1000),sl=$('sl');sl.value=pct;sl.style.setProperty('--pr',(t/total*100)+'%');
+  const ps=$('presScrub');if(ps){ps.style.setProperty('--pr',(t/total*100)+'%');if(document.activeElement!==ps)ps.value=pct}
+}
+function updateCard(ci){const s=ST[ci],T0=ttlOf(s.txt);
+  $('stepNo').textContent='خطوة '+(ci+1)+' من '+ST.length;
+  $('phaseTag').textContent=s.v==='A'?'المسقط الثالث':'الإيزومتريك';$('phaseTag').className='phase p'+s.v;
+  $('ttl').textContent=T0||'خطوة';$('body').innerHTML=bodyOf(s.txt);
+  $('sub').innerHTML=s.sub?'<span>تفصيل ومقاسات</span>'+s.sub:'';$('sub').style.display=s.sub?'block':'none';
+  $('ctx').innerHTML=s.ctx?'<span>الهدف من الخطوة</span>'+s.ctx:'';$('ctx').style.display=s.ctx?'block':'none';
+  $('presStep').innerHTML='مسألة <bdi dir="ltr">'+curN+'</bdi> · خطوة <bdi dir="ltr">'+(ci+1)+' / '+ST.length+'</bdi>';
+  $('presPhase').textContent=s.v==='A'?'المسقط الثالث':'الإيزومتريك';$('presPhase').className='phase p'+s.v;
+  $('presTitle').textContent=T0||'خطوة';$('presCounter').textContent=(ci+1)+' / '+ST.length;
+  $('presProgress').style.width=(t/total*100)+'%';
+  [].forEach.call(document.querySelectorAll('.sh-i'),(b,j)=>b.classList.toggle('on',j===ci))}
+function syncAll(){
+  $('play').innerHTML=SV(playing?IC.pause:IC.play,22)+'<span>'+(playing?'إيقاف مؤقت':(t>0&&t<total?'استكمال':'تشغيل'))+'</span>';$('play').classList.toggle('on',playing);
+  $('solBtn').classList.toggle('on',all);$('solBtn').textContent=all?'إخفاء الحل':'الحل النهائي';
+  $('pauseEach').classList.toggle('on',pauseEach);
+  $('presPlay').innerHTML=SV(playing?IC.pause:IC.play,19)+'<span>'+(playing?'إيقاف':'تشغيل')+'</span>';$('presPlay').classList.toggle('on',playing);
+  const soundIcon=SV(soundOn?IC.sound:IC.mute,19);[$('soundBtn'),$('presSound')].forEach(b=>{b.innerHTML=soundIcon;b.setAttribute('aria-pressed',String(soundOn));b.setAttribute('aria-label',soundOn?'كتم المؤثرات الصوتية':'تشغيل المؤثرات الصوتية')});}
+function loop(ts){
+  if(playing){let nt=t+Math.min(ts-last,80)*sp;
+    if(pauseEach){const e=end(curIdx());if(t<e-0.5&&nt>=e){nt=e;playing=false;syncAll()}}
+    if(nt>=total){nt=total;playing=false;syncAll()}
+    t=nt}
+  last=ts;render();requestAnimationFrame(loop)}
+
+/* ===== التحكم ===== */
+$('bp').innerHTML=SV(IC.prev);$('bn').innerHTML=SV(IC.next);$('rs').innerHTML=SV(IC.rs);$('zoomBtn').innerHTML=SV(IC.zoom,18);$('presentBtn').innerHTML=SV(IC.expand,19);$('presPrev').innerHTML=SV(IC.prev,18);$('presNext').innerHTML=SV(IC.next,18);
+$('play').onclick=()=>{if(playing)playing=false;else{if(t>=total)t=0;all=false;playing=true}syncAll()};
+$('rs').onclick=()=>{t=0;all=false;tabP='A';playing=true;syncAll()};
+$('sl').oninput=e=>{t=e.target.value/1000*total;playing=false;all=false;syncAll()};
+function nextStep(){playing=false;all=false;const i=curIdx();t=(t<end(i)-1)?end(i):end(Math.min(i+1,ST.length-1));syncAll()}
+function prevStep(){playing=false;all=false;const i=curIdx();t=i>0?end(i-1):0;syncAll()}
+$('bn').onclick=nextStep;$('bp').onclick=prevStep;
+[['بطيء',0.5],['متوسط',0.8],['سريع',1.5]].forEach(a=>{const b=document.createElement('button');b.textContent=a[0];if(a[1]===sp)b.className='on';b.onclick=()=>{sp=a[1];[].forEach.call(document.querySelectorAll('#spd button'),x=>x.classList.remove('on'));b.classList.add('on')};$('spd').appendChild(b)});
+$('solBtn').onclick=()=>{all=!all;playing=false;if(all)tabP=ST[curIdx()].v;syncAll()};
+$('pauseEach').onclick=()=>{pauseEach=!pauseEach;syncAll()};
+$('zoomBtn').onclick=()=>{zi=(zi+1)%ZS.length;$('canvas').style.setProperty('--z',ZS[zi])};
+$('stepsBtn').onclick=()=>$('sheet').classList.add('open');
+function ensureAudio(){if(!soundOn)return null;const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return null;try{if(!audioCtx)audioCtx=new AC();if(audioCtx.state==='suspended')audioCtx.resume();return audioCtx}catch(e){return null}}
+function playStepTone(){const c=ensureAudio();if(!c)return;try{const o=c.createOscillator(),g=c.createGain(),n=c.currentTime;o.type='sine';o.frequency.setValueAtTime(660,n);o.frequency.exponentialRampToValueAtTime(880,n+.07);g.gain.setValueAtTime(.0001,n);g.gain.exponentialRampToValueAtTime(.026,n+.012);g.gain.exponentialRampToValueAtTime(.0001,n+.14);o.connect(g);g.connect(c.destination);o.start(n);o.stop(n+.15)}catch(e){}}
+function toggleSound(){soundOn=!soundOn;if(soundOn){ensureAudio();playStepTone()}syncAll()}
+function moveDrawingToPresentation(show){const host=$('presDrawing'),canvas=$('canvas');if(show){if(svgs.A.parentNode!==host)host.appendChild(svgs.A);if(svgs.B.parentNode!==host)host.appendChild(svgs.B)}else{if(svgs.A.parentNode!==canvas)canvas.appendChild(svgs.A);if(svgs.B.parentNode!==canvas)canvas.appendChild(svgs.B)}}
+function openPresentation(){const modal=$('presentation');if(t>=total)t=0;all=false;moveDrawingToPresentation(true);modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.classList.add('presentation-active');if(!playing)playing=true;ensureAudio();syncAll();render();try{if(modal.requestFullscreen)modal.requestFullscreen().catch(()=>{})}catch(e){}$('presClose').focus()}
+function closePresentation(){const modal=$('presentation');playing=false;moveDrawingToPresentation(false);modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('presentation-active');if(document.fullscreenElement){try{document.exitFullscreen()}catch(e){}}syncAll();$('presentBtn').focus()}
+$('presentBtn').onclick=openPresentation;$('presClose').onclick=closePresentation;$('presPlay').onclick=()=>{$('play').onclick()};
+function presentMove(dir){playing=false;all=false;const i=curIdx();if(dir>0)t=i>=ST.length-1?total:end(Math.min(i+1,ST.length-1));else t=i>0?end(i-1):0;syncAll();render()}
+$('presPrev').onclick=()=>presentMove(-1);$('presNext').onclick=()=>presentMove(1);
+$('presSound').onclick=toggleSound;$('soundBtn').onclick=toggleSound;
+$('presScrub').oninput=e=>{t=e.target.value/1000*total;playing=false;all=false;syncAll();render()};
+document.addEventListener('pointerdown',()=>{if(soundOn)ensureAudio()},{once:true,passive:true});
+$('presentation').onclick=e=>{if(e.target===$('presentation'))closePresentation()};
+$('shClose').onclick=()=>$('sheet').classList.remove('open');
+$('sheet').onclick=e=>{if(e.target===$('sheet'))$('sheet').classList.remove('open')};
+[].forEach.call(document.querySelectorAll('#seg button'),b=>{b.onclick=()=>{const p=b.dataset.p;if(all){tabP=p}else{playing=false;t=p==='A'?0:end(lastA)+1}syncAll()}});
+function setTheme(m){document.documentElement.setAttribute('data-theme',m);try{localStorage.setItem('th',m)}catch(e){}$('themeBtn').innerHTML=SV(m==='dark'?IC.sun:IC.moon,20)}
+$('themeBtn').onclick=()=>setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+let sx=null;$('canvas').addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+$('canvas').addEventListener('touchend',e=>{if(sx==null||zi>0)return;const dx=e.changedTouches[0].clientX-sx;sx=null;if(Math.abs(dx)>90){if(dx<0)nextStep();else prevStep()}},{passive:true});
+document.addEventListener('keydown',e=>{const inCinema=$('presentation').classList.contains('open');if(e.key==='Escape'&&inCinema){closePresentation();return}if(e.code==='Space'){e.preventDefault();if(inCinema)$('presPlay').onclick();else $('play').onclick()}else if(e.code==='ArrowLeft'){if(inCinema)presentMove(-1);else nextStep()}else if(e.code==='ArrowRight'){if(inCinema)presentMove(1);else prevStep()}});
+for(let i=0;i<20;i++){const s=document.createElement('i');s.style.left=(Math.random()*100)+'%';s.style.animationDuration=(5+Math.random()*7)+'s';s.style.animationDelay=(-Math.random()*10)+'s';$('em').appendChild(s)}
+let th0='dark',pn0=1;try{th0=localStorage.getItem('th')||'dark';pn0=parseInt(localStorage.getItem('pn'),10)||1}catch(e){}
+setTheme(th0);go(pn0);requestAnimationFrame(loop);
+
+</script>
+
+
+</body>
+</html>
